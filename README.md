@@ -4,9 +4,9 @@
  creater_ics_v1 仅更新网站第一页的菜单列表，需要每周生成一次ics    
  creater_ics_v2 
   优化v1部分代码  
-   增加课程表信息  
-	>> 可在字典holidays自定义假期  
-	 specialworkdays自定义换休工作日和对应星期号  
+  增加课程表信息  
+  * 可在字典holidays自定义假期  
+  * specialworkdays自定义换休工作日和对应星期号  
     增加天气预报（5天,来源：上海气象局api）  
     ————————————————————      
  1.代码暂时需要每周手动执行  
