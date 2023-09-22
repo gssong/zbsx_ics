@@ -3,7 +3,7 @@
  文件说明：      
  creater_ics_v1 仅更新网站第一页的菜单列表，需要每周生成一次ics    
  creater_ics_v2 
- > 优化v1部分代码  
+  优化v1部分代码  
    增加课程表信息  
   ''' 
     course_schedule = {
