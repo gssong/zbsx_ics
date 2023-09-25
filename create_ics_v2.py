@@ -5,7 +5,8 @@ from datetime import datetime
 now = datetime.now().strftime('%Y%m%dT%H:%M:%S')
 
 import re
-import httpx  # httpx与requests的api相似，可以仅更改httpx为requests，代码运行无误
+#import httpx  # httpx与requests的api相似，可以仅更改httpx为requests，代码运行无误
+import requests
 from lxml import etree
 def get_url(url):
     #headers = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','Accept-Encoding': 'gzip, deflate, br','Accept-Language': 'zh-CN,zh;q=0.9','Connection': 'keep-alive','User-Agent': Faker().chrome(version_from=98, version_to=100, build_from=4800, build_to=5000),}
@@ -13,7 +14,7 @@ def get_url(url):
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
     }
     try:
-        response = httpx.get(url, headers=headers)
+        response = requests.get(url, headers=headers)
         if response.status_code == 200:
             return response.text
         else:
@@ -219,7 +220,7 @@ def save_ics(fname, text):
         f.write(text)
 
 url = 'http://www.syxx.edu.sh.cn/info/iList.jsp?cat_id=10020'
-fname = r'D:\calendar_2023_cd.ics'
+fname = 'calendar_2023_cd.ics'
 text = concat_ics()
 save_ics(fname,text)
 
