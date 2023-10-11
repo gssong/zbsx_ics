@@ -15,6 +15,7 @@ def get_url(url):
     }
     try:
         response = requests.get(url, headers=headers)
+        response.encoding = response.apparent_encoding
         if response.status_code == 200:
             return response.text
         else:
@@ -101,7 +102,6 @@ def getmenu(url):
     m = etree.HTML(url)
     year = m.xpath('//*[@id="body"]/div/div[2]/div/div[2]/div[1]/p[2]/u/span/text()')[0]
     text = ''
-
     for i in range(7):
         try:
             date = m.xpath('//*[@id="body"]/div/div[2]/div/div[2]/div[1]/div/table/tbody/tr['+str(i+2)+']/td[1]/p/span/text()')[0].split('/')
@@ -149,7 +149,7 @@ def set_item_course():
     # 这是一个字典，键是星期几，值是那天的课程列表
     course_schedule = {
         1: ["班队会, 自然, 信息, 数学", "语文, 体育, 道法"],
-        2: ["语文, 体育, 数学, 唱游", "自然", "语文", "写字"],
+        2: ["语文, 体育, 数学, 唱游", "自然, 语文, 写字"],
         3: ["体综, 美术, 语文, 语文", "英语, 唱游, 探究"],
         4: ["语文, 数学, 体育, 英语", "语文, 道法, 美术"],
         5: ["语文, 体育, 开口说时政, 小主综", "小主综","语文, 体育, 动手做数学, 小主综"]
